@@ -2,7 +2,7 @@
 "      Language: vim script
 "    Maintainer: Yichao Zhou (broken.zhou AT gmail dot com)
 "       Created: 2012 Jun 04 20:10:21
-" Last Modified: 2012 Apr 18 14:06:11
+" Last Modified: 2022 Mar 07 19:02:11
 "   Description: 
 "       This is a simple script to do the random shuffle of the lines in
 "       buffer.  Please notice that this script need python2 support!
@@ -20,18 +20,18 @@ let g:loaded_shuffle = 1
 
 com! -nargs=0 -range Shuffle <line1>,<line2>call Shuffle()
 fun! Shuffle() range
-    if !has('python')
-        echohl ErrorMsg | echo 'python is not supported!' | echohl None
+    if !has('python3')
+        echohl ErrorMsg | echo 'python3 is not supported!' | echohl None
         return
     endif
-python <<_EOF_
+python3 <<_EOF_
 try:
     import vim
     import random
     first = int(vim.eval('a:firstline'))
     last = int(vim.eval('a:lastline'))
     random.shuffle(vim.current.buffer.range(first, last))
-except Exception, e:
-    print e
+except Exception as e:
+    print(e)
 _EOF_
 endfun
