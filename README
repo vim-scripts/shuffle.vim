@@ -1,7 +1,7 @@
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=4093
 
 This is a simple script to do the random shuffle of the lines in
-buffer.  Please notice that this script need python2 support!
+buffer.  Please notice that this script need python3 support!
 In order to use the map conveniently, you may want to define some key
 map yourself.
 
